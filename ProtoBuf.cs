@@ -8,6 +8,24 @@ public class ProtoBuf
 }
 
 [ProtoContract]
+public class VersionHandshakeResponse
+{
+
+    [ProtoMember(1)]
+    public required ushort Version { get; set; }
+    
+    [ProtoMember(2)]
+    public required ApplicationVersionCompatibilityLevel ApplicationVersionCompatibilityLevel { get; set; }
+}
+
+[ProtoContract]
+public class VersionHandshake
+{
+    [ProtoMember(1)]
+    public required ushort Version { get; set; }
+}
+
+[ProtoContract]
 public class FSSyncData
 {
     [ProtoMember(1)]
@@ -38,6 +56,7 @@ public class FSInit
     public required DateTime LastWriteTime { get; set; }
     [ProtoMember(7)]
     public required DateTime CreationTime { get; set; }
+    public required byte[] FuuId = new byte[16];
 }
 
 [ProtoContract]

@@ -11,5 +11,7 @@ public enum PacketType
     FileSyncCheckHash=6,
     FileSyncCheckHashResponse=7,
     FileSyncRetryUpload=8,
-    FileSyncFinish=9
+    FileSyncFinish=9,
+    VersionHandshake=10,
+    VersionHandshakeResponse=11
 }

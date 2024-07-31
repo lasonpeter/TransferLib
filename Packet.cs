@@ -4,12 +4,7 @@ public class Packet
 {
     private byte[] _payload = new byte[4096];
     private PacketType _packetType;
-    //1: Data
-    //2: Ping
-    //3: FileSyncInit
-    //4: FileSyncInitResponse
-    //5: FileSyncFinish
-    //6: FileSyncData 
+    public readonly ushort Version = 1;
     private ushort _messageLength;
     private byte[] _data = new byte[4_099];
     public byte[] Payload => _payload;
