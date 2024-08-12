@@ -57,8 +57,7 @@ public class FsInit
     [ProtoMember(7)]
     public required DateTime CreationTime { get; set; }
 
-    [ProtoMember(8)] 
-    public required byte[] FuuId = new byte[16]; 
+    [ProtoMember(8)] public required List<byte> FuuId = new List<byte>();
 
     public FsInit()
     {
