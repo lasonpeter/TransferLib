@@ -37,7 +37,7 @@ public class FSSyncData
 }
 
 [ProtoContract]
-public class FSInit
+public class FsInit
 {
 
     [ProtoMember(1)]
@@ -56,7 +56,14 @@ public class FSInit
     public required DateTime LastWriteTime { get; set; }
     [ProtoMember(7)]
     public required DateTime CreationTime { get; set; }
-    public required byte[] FuuId = new byte[16];
+
+    [ProtoMember(8)] 
+    public required byte[] FuuId = new byte[16]; 
+
+    public FsInit()
+    {
+        
+    }
 }
 
 [ProtoContract]
