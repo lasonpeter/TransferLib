@@ -8,7 +8,7 @@ public class ProtoBuf
 }
 
 [ProtoContract]
-public class VersionHandshakeResponse
+public struct VersionHandshakeResponse
 {
 
     [ProtoMember(1)]
@@ -19,14 +19,14 @@ public class VersionHandshakeResponse
 }
 
 [ProtoContract]
-public class VersionHandshake
+public struct VersionHandshake
 {
     [ProtoMember(1)]
     public required ushort Version { get; set; }
 }
 
 [ProtoContract]
-public class FSSyncData
+public struct FSSyncData
 {
     [ProtoMember(1)]
     public required byte FileId { get; set; }
@@ -37,15 +37,13 @@ public class FSSyncData
 }
 
 [ProtoContract]
-public class FsInit
+public struct FsInit
 {
 
     [ProtoMember(1)]
     public required byte FileId { get; set; }
-
     [ProtoMember(2)]
     public required string FilePath { get; set; }
-
     [ProtoMember(3)]
     public required long FileSize  { get; set; }
     [ProtoMember(4)]
@@ -57,7 +55,11 @@ public class FsInit
     [ProtoMember(7)]
     public required DateTime CreationTime { get; set; }
 
-    [ProtoMember(8)] public required List<byte> FuuId = new List<byte>();
+    /// <summary>
+    /// THAT WAS A DUMB DECISION… changing it to Guid since thats it's purpose… to be a GUID…
+    /// </summary>
+    [ProtoMember(8)]
+    public required Guid FuuId;
 
     public FsInit()
     {
@@ -66,7 +68,7 @@ public class FsInit
 }
 
 [ProtoContract]
-public class FSInitResponse
+public struct FSInitResponse
 {
     [ProtoMember(1)] 
     public required byte FileId { get; set; }
@@ -75,7 +77,7 @@ public class FSInitResponse
 }
 
 [ProtoContract]
-public class FSCheckHash
+public struct FSUploadCheckHash
 {
     [ProtoMember(1)]
     public required byte FileId { get; set; }
@@ -84,7 +86,7 @@ public class FSCheckHash
 }
 
 [ProtoContract]
-public class FSCheckHashResponse
+public struct FSUploadCheckHashResponse
 {
     [ProtoMember(1)]
     public required byte FileId { get; set; }
@@ -93,8 +95,14 @@ public class FSCheckHashResponse
 }
 
 [ProtoContract]
-public class FSFinish
+public struct FSFinish
 {
     [ProtoMember(1)]
     public required byte FileId { get; set; }
+}
+
+[ProtoContract]
+public struct FSHashCheck
+{
+    public List<HashCheckPair> HashCheckPairs { get; set; }
 }

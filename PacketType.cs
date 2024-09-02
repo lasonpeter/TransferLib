@@ -8,10 +8,12 @@ public enum PacketType
     FileSyncInit=3,
     FileSyncInitResponse=4,
     FileSyncData=5,
-    FileSyncCheckHash=6,
-    FileSyncCheckHashResponse=7,
+    FileSyncUploadCheckHash=6,
+    FileSyncUploadCheckHashResponse=7,
     FileSyncRetryUpload=8,
     FileSyncFinish=9,
     VersionHandshake=10,
-    VersionHandshakeResponse=11
+    VersionHandshakeResponse=11,
+    FileSyncHashCheck=12,
+    FileSyncHashCheckResponse=13
 }
