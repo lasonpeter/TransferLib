@@ -106,3 +106,8 @@ public struct FSHashCheck
 {
     public List<HashCheckPair> HashCheckPairs { get; set; }
 }
+[ProtoContract]
+public struct FSHashCheckResponse
+{
+    public List<Guid> Changed { get; set; }
+}
